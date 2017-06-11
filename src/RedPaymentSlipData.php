@@ -386,4 +386,12 @@ class RedPaymentSlipData extends PaymentSlipData
     {
         $this->codeLine = $codeLine;
     }
+
+    public function getCodeLine2()
+    {
+        $accountNumber = $this->getAccountDigits();
+        $accountNumberPart = $this->padCodeAccountNumberPart($accountNumber).'>';
+
+        return $accountNumberPart;
+    }
 }

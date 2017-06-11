@@ -985,4 +985,14 @@ abstract class PaymentSlipData
         }
         return true;
     }
+
+    /**
+     * @param $accountNumber
+     * @return string
+     */
+    protected function padCodeAccountNumberPart($accountNumber)
+    {
+        return substr($accountNumber, 0, 2).
+            str_pad(substr($accountNumber, 2), 7, '0', STR_PAD_LEFT);
+    }
 }

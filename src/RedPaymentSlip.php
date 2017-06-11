@@ -483,7 +483,7 @@ class RedPaymentSlip extends PaymentSlip
             // Place payment reason lines
             $lines = array(
                 $paymentSlipData->getCode().'>',
-                str_replace('-', '', $paymentSlipData->getAccountNumber()).'>'
+                $paymentSlipData->getCodeLine2()
             );
             $elements['codeLines'] = array(
                 'lines'      => $lines,
