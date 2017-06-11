@@ -115,15 +115,15 @@ class RedPaymentSlip extends PaymentSlip
         $this->setBankLeftAttr(2, 8, 50, 4);
         $this->setIbanLeftAttr(2, 21, 0, 0, 0, 'courier');
         $this->setRecipientLeftAttr(2, 23, 50, 4);
-        $this->setAmountFrancsLeftAttr(5, 52, 35, 4);
-        $this->setAmountCentsLeftAttr(50, 52, 6, 4);
+        $this->setAmountFrancsLeftAttr(5, 51.5, 35, 4);
+        $this->setAmountCentsLeftAttr(50, 51.5, 6, 4);
 
         $this->setPayerRightAttr(125, 48, 50, 4);
         $this->setBankRightAttr(64, 8, 50, 4);
         $this->setIbanRightAttr(64, 21, 0, 0, 0, 'courier');
         $this->setRecipientRightAttr(64, 23, 50, 4);
-        $this->setAmountFrancsRightAttr(64, 52, 35, 4);
-        $this->setAmountCentsRightAttr(111, 52, 6, 4);
+        $this->setAmountFrancsRightAttr(66, 51.5, 35, 4);
+        $this->setAmountCentsRightAttr(111, 51.5, 6, 4);
 
         $this->setCodeLineAttr(64, 85, 140, 4, null, 'OCRB10');
 
