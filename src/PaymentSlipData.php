@@ -58,6 +58,11 @@ use SwissPaymentSlip\SwissPaymentSlip\Exception\DisabledDataException;
  */
 abstract class PaymentSlipData
 {
+    /**
+     * Defines whether the values would be encoded.
+     * @var bool
+     */
+    public $encodeValues = true;
 
     /**
      * The array table for calculating the check digit by modulo 10
@@ -347,6 +352,30 @@ abstract class PaymentSlipData
     public function getWithPayer()
     {
         return $this->withPayer;
+    }
+
+
+    /**
+     * Defines whether the values would be encoded.
+     *
+     * @param $encodeValues
+     * @return $this
+     */
+    public function setEncodeValues($encodeValues)
+    {
+        $this->encodeValues = $encodeValues;
+
+        return $this;
+    }
+
+    /**
+     * Defines whether the values would be encoded.
+     *
+     * @return bool
+     */
+    public function getEncodeValues()
+    {
+        return $this->encodeValues;
     }
 
     /**

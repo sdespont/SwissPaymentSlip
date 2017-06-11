@@ -1509,4 +1509,32 @@ abstract class PaymentSlip
         }
         return true;
     }
+
+    /**
+     * Encodes all values to windows-1252 encoding.
+     *
+     * @param $elements
+     * @return array
+     */
+    protected function encodeElements($elements)
+    {
+        $encodedElements = [];
+
+        foreach ($elements as $key => $value) {
+            if (!isset($value['lines']) || !isset($value['attributes'])) {
+                $encodedElements[$key] = $value;
+            }
+
+            $encodedValue = $value['lines'];
+
+            $encodedValue = array_map(function ($value) {
+                return iconv('UTF-8', 'windows-1252', $value);
+            }, $encodedValue);
+
+            $encodedElements[$key]['lines'] = $encodedValue;
+            $encodedElements[$key]['attributes'] = $value['attributes'];
+        }
+
+        return $encodedElements;
+    }
 }

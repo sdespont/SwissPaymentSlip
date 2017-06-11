@@ -106,7 +106,6 @@ class RedPaymentSlip extends PaymentSlip
      * Sets the default attributes of the elements for a red slip
      *
      * @return $this The current instance for a fluent interface.
-     * @todo Set default attributes for $ibanLeftAttr, $ibanRightAttr & $paymentReasonAttr
      */
     protected function setDefaults()
     {
@@ -490,6 +489,10 @@ class RedPaymentSlip extends PaymentSlip
                 'lines'      => $lines,
                 'attributes' => $this->getCodeLineAttr()
             );
+        }
+
+        if ($paymentSlipData->getEncodeValues()) {
+            $elements = $this->encodeElements($elements);
         }
 
         return $elements;
