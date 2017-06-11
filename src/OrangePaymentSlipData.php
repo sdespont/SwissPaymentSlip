@@ -332,8 +332,7 @@ class OrangePaymentSlipData extends PaymentSlipData
         } else {
             $referenceNumberPart = $referenceNumber;
         }
-        $accountNumberPart = substr($accountNumber, 0, 2) .
-            str_pad(substr($accountNumber, 2), 7, '0', STR_PAD_LEFT);
+        $accountNumberPart = $this->padCodeAccountNumberPart($accountNumber);
 
         if ($this->getNotForPayment()) {
             $amountPrefix = 'XX';

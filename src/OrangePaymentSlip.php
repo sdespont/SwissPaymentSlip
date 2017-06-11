@@ -436,7 +436,7 @@ class OrangePaymentSlip extends PaymentSlip
             ];
             $elements['referenceNumberLeft'] = [
                 'lines' => $lines,
-            'attributes' => $this->getReferenceNumberLeftAttr()
+                'attributes' => $this->getReferenceNumberLeftAttr()
             ];
 
             // Place right reference number
@@ -455,6 +455,10 @@ class OrangePaymentSlip extends PaymentSlip
                 'lines' => $lines,
                 'attributes' => $this->getCodeLineAttr()
             ];
+        }
+
+        if ($paymentSlipData->getEncodeValues()) {
+            $elements = $this->encodeElements($elements);
         }
 
         return $elements;

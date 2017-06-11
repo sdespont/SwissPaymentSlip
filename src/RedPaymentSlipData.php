@@ -80,6 +80,12 @@ class RedPaymentSlipData extends PaymentSlipData
     protected $paymentReasonLine4 = '';
 
     /**
+     * The code line at the right bottom
+     * @var string
+     */
+    protected $codeLine = '';
+
+    /**
      * Set if payment slip has an IBAN specified
      *
      * Resets the IBAN when disabling.
@@ -363,5 +369,29 @@ class RedPaymentSlipData extends PaymentSlipData
         $iban = $this->getIban();
         return $this->breakStringIntoBlocks($iban, 4, false);
 
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->codeLine;
+    }
+
+    /**
+     * @param string $codeLine
+     */
+    public function setCode($codeLine)
+    {
+        $this->codeLine = $codeLine;
+    }
+
+    public function getCodeLine2()
+    {
+        $accountNumber = $this->getAccountDigits();
+        $accountNumberPart = $this->padCodeAccountNumberPart($accountNumber).'>';
+
+        return $accountNumberPart;
     }
 }
